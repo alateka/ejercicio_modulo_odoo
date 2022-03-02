@@ -40,21 +40,81 @@
     </record>
 -->
 
-    <!-- Top menu item -->
-<!--
-    <menuitem name="apf_sge" id="apf_sge.menu_root"/>
--->
-    <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="apf_sge.menu_1" parent="apf_sge.menu_root"/>
-    <menuitem name="Menu 2" id="apf_sge.menu_2" parent="apf_sge.menu_root"/>
--->
-    <!-- actions -->
-<!--
-    <menuitem name="List" id="apf_sge.menu_1_list" parent="apf_sge.menu_1"
-              action="apf_sge.action_window"/>
-    <menuitem name="Server to list" id="apf_sge" parent="apf_sge.menu_2"
-              action="apf_sge.action_server"/>
--->
+
+
+    <!-- Acciones para abrir las ventanas enlacados a los modelos 
+    El atributo "id" de cada acción se colocará en el atributo "action" del menu correspondiente
+    Ejemplo de menu usando una acción de ventana:
+    <menuitem name="Chofer" id="apf_sge.chofer" parent="apf_sge.menu_padre" action="apf_sge.chofer_action_window"/>
+    -->
+
+    <!-- Acción de ventana para la vista arbol de los chofer -->
+    <record model="ir.actions.act_window" id="apf_sge.chofer_action_window">
+      <field name="name">Chofer</field>
+      <field name="res_model">apf_sge.chofer</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <!-- Acción de ventana para la vista arbol de la flota -->
+    <record model="ir.actions.act_window" id="apf_sge.camion_action_window">
+      <field name="name">Flota</field>
+      <field name="res_model">apf_sge.camion</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <!-- Acción de ventana para la vista arbol de las rutas -->
+    <record model="ir.actions.act_window" id="apf_sge.destino_action_window">
+      <field name="name">Rutas</field>
+      <field name="res_model">apf_sge.destino</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Vista Arbol - Transportistas -->
+    <record model="ir.ui.view" id="apf_sge.chofer_list_view">
+      <field name="name">apf_sge.chofer.view.tree</field>
+      <field name="model">apf_sge.chofer</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre" />
+          <field name="dni"/>
+          <field name="apellidos"/>
+          <field name="fechaNacimiento"/>
+          <field name="documentosCMR"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Vista Arbol - Flota -->
+    <record model="ir.ui.view" id="apf_sge.camion_list_view">
+      <field name="name">apf_sge.camion.view.tree</field>
+      <field name="model">apf_sge.camion</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="marca" />
+          <field name="modelo"/>
+          <field name="matricula"/>
+          <field name="tipoTrailer"/>
+        </tree>
+      </field>
+    </record>
+    <!-- Vista Arbol - Rutas -->
+    <record model="ir.ui.view" id="apf_sge.destino_list_view">
+      <field name="name">apf_sge.destino.view.tree</field>
+      <field name="model">apf_sge.destino</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="cp" />
+          <field name="direccion"/>
+          <field name="provincia"/>
+          <field name="pais"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Menu padre -->
+    <menuitem name="APF-SGE" id="apf_sge.menu_padre"/>
+    <!-- Menus hijos -->
+    <menuitem name="Chofer" id="apf_sge.chofer" parent="apf_sge.menu_padre" action="apf_sge.chofer_action_window"/>
+    <menuitem name="Flota" id="apf_sge.camion" parent="apf_sge.menu_padre" action="apf_sge.camion_action_window"/>
+    <menuitem name="Rutas" id="apf_sge.destino" parent="apf_sge.menu_padre" action="apf_sge.destino_action_window"/>
+
   </data>
 </odoo>

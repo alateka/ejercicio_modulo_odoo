@@ -14,7 +14,7 @@ class Chofer(models.Model):
     nombre = fields.Char(String = "Nombre del chofer", required = True)
     dni = fields.Char(String = "Documento DNI", required = True)
     apellidos = fields.Char(String = "Apellidos")
-    fechaNacimiento = fields.Date(String = "Edad")
+    fechaNacimiento = fields.Date(String = "Fecha de nacimiento")
     documentosCMR = fields.Char(String = "CMRs o Cartas de porte")
 
 
@@ -32,7 +32,7 @@ class Camion(models.Model):
 
     modelo = fields.Char(String = "Modelo del camión", required = True)
     marca = fields.Char(String = "Marca", required = True)
-    matricula = fields.Char(String = "Matrícula")
+    matricula = fields.Char(String = "Matrícula", required = True)
     tipoTrailer = fields.Char(String = "Tipo de Trailer")
 
     # Relacion muchos a uno entre la tabla camion y chofer 
@@ -46,11 +46,11 @@ class Camion(models.Model):
 class Destino(models.Model):
     _name = "apf_sge.destino"
     _description = "Modelo encargado de la gestion de los viajes"
-    _order = "name"
+    _order = "pais"
 
     cp = fields.Char(String = "Código postal", required = True)
-    pais = fields.Char(String = "Pais", required = True)
-    direccion = fields.Char(String = "Dirección")
+    pais = fields.Char(String = "Pais")
+    direccion = fields.Char(String = "Dirección", required = True)
     provincia = fields.Char(String = "Provincia")
 
     # Relacion
