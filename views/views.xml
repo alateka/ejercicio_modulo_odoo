@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="apf_sge.list">
+      <field name="name">apf_sge list</field>
+      <field name="model">apf_sge.apf_sge</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="apf_sge.action_window">
+      <field name="name">apf_sge window</field>
+      <field name="res_model">apf_sge.apf_sge</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="apf_sge.action_server">
+      <field name="name">apf_sge server</field>
+      <field name="model_id" ref="model_apf_sge_apf_sge"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="apf_sge" id="apf_sge.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="apf_sge.menu_1" parent="apf_sge.menu_root"/>
+    <menuitem name="Menu 2" id="apf_sge.menu_2" parent="apf_sge.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="apf_sge.menu_1_list" parent="apf_sge.menu_1"
+              action="apf_sge.action_window"/>
+    <menuitem name="Server to list" id="apf_sge" parent="apf_sge.menu_2"
+              action="apf_sge.action_server"/>
+-->
+  </data>
+</odoo>
