@@ -7,12 +7,12 @@ from odoo import models, fields, api
 
 
 class Chofer(models.Model):
-    _name = "apf_sge.chofer"
+    _name = "apfsge.chofer"
     _description = "Modelo encargado de la gestion de los chofers"
     _order = "nombre"
 
     # Relacion uno a muchos entre la tabla chofer y camion
-    chofer_ids = fields.One2many("apf_sge.camion", "camion_id", String = "Chofer")
+    chofer_ids = fields.One2many("apfsge.camion", "camion_id", String = "Chofer")
 
     nombre = fields.Char(string = "Nombre del chofer", required = True)
     dni = fields.Char(string = "Documento DNI", required = True)
@@ -32,7 +32,7 @@ class Chofer(models.Model):
 
 
 class Camion(models.Model):
-    _name = "apf_sge.camion"
+    _name = "apfsge.camion"
     _description = "Modelo encargado de la gestion de la flota de camiones"
     _order = "marca"
 
@@ -42,15 +42,15 @@ class Camion(models.Model):
     tipoTrailer = fields.Char(string = "Tipo de Trailer")
 
     # Relacion muchos a uno entre la tabla camion y chofer 
-    camion_id = fields.Many2one("apf_sge.chofer", String = "Vehículo de mercancias")
+    camion_id = fields.Many2one("apfsge.chofer", String = "Vehículo de mercancias")
 
     # Relacion muchos a muchos entre la tabla camion y destino 
-    destino_ids = fields.Many2many("apf_sge.destino", String = "Destinos de Ruta")
+    destino_ids = fields.Many2many("apfsge.destino", String = "Destinos de Ruta")
 
 
 
 class Destino(models.Model):
-    _name = "apf_sge.destino"
+    _name = "apfsge.destino"
     _description = "Modelo encargado de la gestion de los viajes"
     _order = "pais"
 
@@ -60,4 +60,4 @@ class Destino(models.Model):
     provincia = fields.Char(string = "Provincia")
 
     # Relacion muchos a muchos entre la tabla camion y destino 
-    camion_ids = fields.Many2many("apf_sge.camion", String = "Vehículos de mercancias")
+    camion_ids = fields.Many2many("apfsge.camion", String = "Vehículos de mercancias")

@@ -1,6 +1,6 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_apf_sge_chofer_chofer,apf_sge.chofer.chofer,model_apf_sge_chofer,apf_sge.group_apf_sge_chofer,1,0,0,0
-access_apf_sge_camion_chofer,apf_sge.camion.chofer,model_apf_sge_camion,apf_sge.group_apf_sge_chofer,1,1,1,1
-access_apf_sge_destino_chofer,apf_sge.destino.chofer,model_apf_sge_destino,apf_sge.group_apf_sge_chofer,1,0,0,0
-access_apf_sge_chofer_chofer,apf_sge.chofer.chofer,model_apf_sge_chofer,apf_sge.group_apf_sge_empresario,1,1,1,1
-access_apf_sge_destino_chofer,apf_sge.destino.chofer,model_apf_sge_destino,apf_sge.group_apf_sge_empresario,1,1,1,1
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_apfsge_chofer_chofer,apfsge.chofer.chofer,model_apfsge_chofer,apfsge.group_apfsge_chofer,1,0,0,0
+access_apfsge_camion_chofer,apfsge.camion.chofer,model_apfsge_camion,apfsge.group_apfsge_chofer,1,1,1,1
+access_apfsge_destino_chofer,apfsge.destino.chofer,model_apfsge_destino,apfsge.group_apfsge_chofer,1,0,0,0
+access_apfsge_chofer_empresario,apfsge.chofer.empresario,model_apfsge_chofer,apfsge.group_apfsge_empresario,1,1,1,1
+access_apfsge_destino_empresario,apfsge.destino.empresario,model_apfsge_destino,apfsge.group_apfsge_empresario,1,1,1,1

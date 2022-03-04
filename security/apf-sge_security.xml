@@ -2,26 +2,24 @@
 <odoo>
 <data>
     <!-- Se definen una categoría de seguridad para el módulo -->
-    <record model="ir.module.category" id="apf_sge.module_category_apf_sge">
+    <record model="ir.module.category" id="apfsge.module_category_apfsge">
         <field name="name">APF-SGE</field>
         <field name="description">Categoría dedicada a la gestión de la flota</field>
         <field name="sequence">100</field>
     </record>
     <!-- Se definen un grupo para los chofer del que solo se podrán gestionar la flota de camiones -->
-    <record model="res.groups" id="group_apf_sge_chofer">
-        <field name="name">Permisos Chófer</field>
-        <field name="category_id" ref="apf_sge.module_category_apf_sge"></field>
+    <record model="res.groups" id="group_apfsge_chofer">
+        <field name="name">Permisos Chofer</field>
+        <field name="category_id" ref="apfsge.module_category_apfsge"></field>
         <field name="comment">Permisos para gestionar solo la flota de camiones</field>
     </record>
     <!-- Se definen un grupo para el control total del que se podrán gestionar toda la flota, rutas y los datos de los chófer -->
-    <record model="res.groups" id="group_apf_sge_empresario">
+    <record model="res.groups" id="group_apfsge_empresario">
         <field name="name">Permisos Empresario</field>
-        <field name="category_id" ref="apf_sge.module_category_apf_sge"></field>
-        <field name="comment">
-            Permisos para gestionar gestionar toda la flota, rutas y los datos de los chófer
-        </field>
+        <field name="category_id" ref="apfsge.module_category_apfsge"></field>
+        <field name="comment">Permisos para gestionar gestionar toda la flota, rutas y los datos de los chófer</field>
         <!-- Los miembros del grupo Empresario también son parte del grupo Chófer -->
-        <field name="implied_ids" eval="[(4, ref('group_apf_sge_chofer'))]"></field>
+        <field name="implied_ids" eval="[(4, ref('group_apfsge_chofer'))]"></field>
         <!-- Añadimos también a los usuarios administradores de Odoo -->
         <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"></field>
     </record>

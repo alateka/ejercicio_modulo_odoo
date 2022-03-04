@@ -3,33 +3,33 @@
     <!-- Acciones para abrir las ventanas enlacados a los modelos 
     El atributo "id" de cada acción se colocará en el atributo "action" del menu correspondiente
     Ejemplo de menu usando una acción de ventana:
-    <menuitem name="Chofer" id="apf_sge.chofer" parent="apf_sge.menu_padre" action="apf_sge.chofer_action_window"/>
+    <menuitem name="Chofer" id="apfsge.chofer" parent="apfsge.menu_padre" action="apfsge.chofer_action_window"/>
     -->
 
     <!-- Acción de ventana para la vista arbol de los chofer -->
     <!-- Por convenio, en el atributo "id" se suele empezar siempre por el nombre del módulo seguido de un punto mas nombre_modulo_action_window -->
-    <record model="ir.actions.act_window" id="apf_sge.chofer_action_window">
+    <record model="ir.actions.act_window" id="apfsge.chofer_action_window">
       <field name="name">Chofer</field>
-      <field name="res_model">apf_sge.chofer</field>
+      <field name="res_model">apfsge.chofer</field>
       <field name="view_mode">tree,form</field>
     </record>
     <!-- Acción de ventana para la vista arbol de la flota -->
-    <record model="ir.actions.act_window" id="apf_sge.camion_action_window">
+    <record model="ir.actions.act_window" id="apfsge.camion_action_window">
       <field name="name">Flota</field>
-      <field name="res_model">apf_sge.camion</field>
+      <field name="res_model">apfsge.camion</field>
       <field name="view_mode">tree,form</field>
     </record>
     <!-- Acción de ventana para la vista arbol de las rutas -->
-    <record model="ir.actions.act_window" id="apf_sge.destino_action_window">
+    <record model="ir.actions.act_window" id="apfsge.destino_action_window">
       <field name="name">Rutas</field>
-      <field name="res_model">apf_sge.destino</field>
+      <field name="res_model">apfsge.destino</field>
       <field name="view_mode">tree,form</field>
     </record>
     <!-- Vista Arbol - Transportistas -->
     <!-- Aquí también por convenio, en el atributo "id" se suele empezar siempre por el nombre del módulo seguido de un punto mas nombre_modulo_list_view -->
-    <record model="ir.ui.view" id="apf_sge.chofer_list_view">
-      <field name="name">apf_sge.chofer.view.tree</field>
-      <field name="model">apf_sge.chofer</field>
+    <record model="ir.ui.view" id="apfsge.chofer_list_view">
+      <field name="name">apfsge.chofer.view.tree</field>
+      <field name="model">apfsge.chofer</field>
       <field name="arch" type="xml">
         <tree>
           <field name="nombre" />
@@ -42,9 +42,9 @@
       </field>
     </record>
     <!-- Vista Arbol - Flota -->
-    <record model="ir.ui.view" id="apf_sge.camion_list_view">
-      <field name="name">apf_sge.camion.view.tree</field>
-      <field name="model">apf_sge.camion</field>
+    <record model="ir.ui.view" id="apfsge.camion_list_view">
+      <field name="name">apfsge.camion.view.tree</field>
+      <field name="model">apfsge.camion</field>
       <field name="arch" type="xml">
         <tree>
           <field name="marca" />
@@ -55,9 +55,9 @@
       </field>
     </record>
     <!-- Vista Arbol - Rutas -->
-    <record model="ir.ui.view" id="apf_sge.destino_list_view">
-      <field name="name">apf_sge.destino.view.tree</field>
-      <field name="model">apf_sge.destino</field>
+    <record model="ir.ui.view" id="apfsge.destino_list_view">
+      <field name="name">apfsge.destino.view.tree</field>
+      <field name="model">apfsge.destino</field>
       <field name="arch" type="xml">
         <tree>
           <field name="cp" />
@@ -69,11 +69,11 @@
     </record>
     <!-- Definimos el menu padre -->
     <!-- Aquí también por convenio, en el atributo "id" se suele empezar siempre por el nombre del módulo seguido de un punto mas nombre_modulo_nombre_menu -->
-    <menuitem name="Flota - SGE" id="apf_sge.menu_padre"/>
+    <menuitem name="Flota - SGE" id="apfsge.menu_padre"/>
     <!-- Definimos los menus hijos -->
     <!-- En los menus hijos es necesario añadir el atributo "parent" para especificar el menu padre del que cuelgan -->
-    <menuitem name="Chofer" id="apf_sge.chofer" parent="apf_sge.menu_padre" action="apf_sge.chofer_action_window"/>
-    <menuitem name="Flota" id="apf_sge.camion" parent="apf_sge.menu_padre" action="apf_sge.camion_action_window"/>
-    <menuitem name="Rutas" id="apf_sge.destino" parent="apf_sge.menu_padre" action="apf_sge.destino_action_window"/>
+    <menuitem name="Chofer" id="apfsge.chofer" parent="apfsge.menu_padre" action="apfsge.chofer_action_window"/>
+    <menuitem name="Flota" id="apfsge.camion" parent="apfsge.menu_padre" action="apfsge.camion_action_window"/>
+    <menuitem name="Rutas" id="apfsge.destino" parent="apfsge.menu_padre" action="apfsge.destino_action_window"/>
   </data>
 </odoo>
