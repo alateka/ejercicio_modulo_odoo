@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
+
 from odoo import models, fields, api
 
 
@@ -11,29 +14,32 @@ class Chofer(models.Model):
     # Relacion uno a muchos entre la tabla chofer y camion
     chofer_ids = fields.One2many("apf_sge.camion", "camion_id", String = "Chofer")
 
-    nombre = fields.Char(String = "Nombre del chofer", required = True)
-    dni = fields.Char(String = "Documento DNI", required = True)
-    apellidos = fields.Char(String = "Apellidos")
-    fechaNacimiento = fields.Date(String = "Fecha de nacimiento")
-    documentosCMR = fields.Char(String = "CMRs o Cartas de porte")
+    nombre = fields.Char(string = "Nombre del chofer", required = True)
+    dni = fields.Char(string = "Documento DNI", required = True)
+    apellidos = fields.Char(string = "Apellidos")
+    fechaNacimiento = fields.Date(string = "Fecha de nacimiento")
+    documentosCMR = fields.Char(string = "CMRs o Cartas de porte")
+    edad = fields.Integer(string = "Edad del chofer", compute = "_get_edad")
+
+    # A partir de la fecha de nacimiento del chofer, añadirá su edad actual.
+    @api.depends('fechaNacimiento')
+    def _get_edad(self):
+        for chofer in self:
+            edad = relativedelta(datetime.now(), chofer.fechaNacimiento)
+            chofer.edad = edad.years
+            
 
 
-
-# TODO usar esto para calcular la edad a partir de la fecha de nacimiento del chofer
-#     @api.depends('value')
-#     def _value_pc(self):
-#         for record in self:
-#             record.value2 = float(record.value) / 100
 
 class Camion(models.Model):
     _name = "apf_sge.camion"
     _description = "Modelo encargado de la gestion de la flota de camiones"
     _order = "marca"
 
-    modelo = fields.Char(String = "Modelo del camión", required = True)
-    marca = fields.Char(String = "Marca", required = True)
-    matricula = fields.Char(String = "Matrícula", required = True)
-    tipoTrailer = fields.Char(String = "Tipo de Trailer")
+    modelo = fields.Char(string = "Modelo del camión", required = True)
+    marca = fields.Char(string = "Marca", required = True)
+    matricula = fields.Char(string = "Matrícula", required = True)
+    tipoTrailer = fields.Char(string = "Tipo de Trailer")
 
     # Relacion muchos a uno entre la tabla camion y chofer 
     camion_id = fields.Many2one("apf_sge.chofer", String = "Vehículo de mercancias")
@@ -48,10 +54,10 @@ class Destino(models.Model):
     _description = "Modelo encargado de la gestion de los viajes"
     _order = "pais"
 
-    cp = fields.Char(String = "Código postal", required = True)
-    pais = fields.Char(String = "Pais")
-    direccion = fields.Char(String = "Dirección", required = True)
-    provincia = fields.Char(String = "Provincia")
+    cp = fields.Char(string = "Código postal", required = True)
+    pais = fields.Char(string = "Pais")
+    direccion = fields.Char(string = "Dirección", required = True)
+    provincia = fields.Char(string = "Provincia")
 
-    # Relacion
+    # Relacion muchos a muchos entre la tabla camion y destino 
     camion_ids = fields.Many2many("apf_sge.camion", String = "Vehículos de mercancias")
