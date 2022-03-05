@@ -26,6 +26,7 @@
     "data": [
         "security/apf-sge_security.xml",
         "security/ir.model.access.csv",
+        "report/apfsge_camion_report.xml",
         "views/views.xml",
         "views/templates.xml",
     ],
