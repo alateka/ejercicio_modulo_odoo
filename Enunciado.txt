@@ -1,0 +1,12 @@
+Proyecto (opcional)
+
+
+La realización del proyecto supone un máximo de 1,5 puntos extra en la nota final.
+
+Se debe desarrollar un módulo similar al de los vídeos proporcionados. 
+
+El módulo debe tener mínimo 2 clases, diferentes a las del ejemplo.
+
+Se presentar un documento explicativo de todo el proceso, además se mandará el módulo creado.
+
+Se realizará una entrevista el día 8 de marzo en clase sobre el trabajo realizado y tiene que mostrarse el resultado obtenido.
