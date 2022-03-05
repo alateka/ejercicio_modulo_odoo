@@ -18,7 +18,7 @@ class Chofer(models.Model):
     dni = fields.Char(string = "Documento DNI", required = True)
     apellidos = fields.Char(string = "Apellidos")
     fechaNacimiento = fields.Date(string = "Fecha de nacimiento")
-    documentosCMR = fields.Char(string = "CMRs o Cartas de porte")
+    documentosCMR = fields.Binary(string = "Subir CMR / Carta de Porte")
     edad = fields.Integer(string = "Edad del chofer", compute = "_get_edad")
 
     # A partir de la fecha de nacimiento del chofer, añadirá su edad actual.

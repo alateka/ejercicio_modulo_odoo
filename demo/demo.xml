@@ -1,30 +1,61 @@
 <odoo>
     <data>
-<!--
-          <record id="object0" model="apf_sge.apf_sge">
-            <field name="name">Object 0</field>
-            <field name="value">0</field>
+    <!-- Se definen dos registros con datos de prueba para los choofer -->
+          <record id="chofer1" model="apfsge.chofer">
+            <field name="nombre">Antonio</field>
+            <field name="dni">87458547N</field>
+            <field name="apellidos">Pastoso García</field>
+            <field name="fechaNacimiento">1997-05-21</field>
           </record>
-
-          <record id="object1" model="apf_sge.apf_sge">
-            <field name="name">Object 1</field>
-            <field name="value">10</field>
+          <record id="chofer2" model="apfsge.chofer">
+            <field name="nombre">Pepe</field>
+            <field name="dni">54512474U</field>
+            <field name="apellidos">Martónez Mazo</field>
+            <field name="fechaNacimiento">1999-12-18</field>
           </record>
-
-          <record id="object2" model="apf_sge.apf_sge">
-            <field name="name">Object 2</field>
-            <field name="value">20</field>
+    <!-- Se definen 3 registros con datos de la flota -->
+          <record id="camion1" model="apfsge.camion">
+            <field name="modelo">XB 720</field>
+            <field name="marca">DAF</field>
+            <field name="matricula">VA-77747 ME</field>
+            <field name="tipoTrailer">Frigo</field>
+            <!-- Las declaraciones de entidades (Uno) se efectuarían así -->
+            <field name="camion_id" ref="chofer1"></field>
           </record>
-
-          <record id="object3" model="apf_sge.apf_sge">
-            <field name="name">Object 3</field>
-            <field name="value">30</field>
+          <record id="camion2" model="apfsge.camion">
+            <field name="modelo">NBD 620</field>
+            <field name="marca">Mercedes</field>
+            <field name="matricula">MA-95747 KE</field>
+            <field name="tipoTrailer">Cisterna</field>
+            <field name="camion_id" ref="chofer2"></field>
           </record>
-
-          <record id="object4" model="apf_sge.apf_sge">
-            <field name="name">Object 4</field>
-            <field name="value">40</field>
+          <record id="camion3" model="apfsge.camion">
+            <field name="modelo">XBHG 41</field>
+            <field name="marca">Scania</field>
+            <field name="matricula">GD-11744 NE</field>
+            <field name="tipoTrailer">Grúa</field>
+            <field name="camion_id" ref="chofer1"></field>
           </record>
--->
+    <!-- Se definen 3 registros con datos de las rutas -->
+          <record id="destino1" model="apfsge.destino">
+            <field name="cp">30877</field>
+            <field name="pais">España</field>
+            <field name="direccion">Calle de las rosas Nº25</field>
+            <field name="provincia">Murcia</field>
+            <!-- Las declaraciones de entidades (Muchos) se efectuarían así -->
+            <!-- <field name="camion_ids" eval="[(6, 0, [ref(camion2), ref(camion3)])]"></field> -->
+          </record>
+          <record id="destino2" model="apfsge.destino">
+            <field name="cp">87447</field>
+            <field name="pais">Francia</field>
+            <field name="direccion">Calle Francesa N74</field>
+            <field name="provincia">Marche</field>
+          </record>
+          <record id="destino3" model="apfsge.destino">
+            <field name="cp">28441</field>
+            <field name="pais">España</field>
+            <field name="direccion">Calle de las magdalenas N98</field>
+            <field name="provincia">Murcia</field>
+          </record>
     </data>
 </odoo>
